@@ -3,7 +3,7 @@
 A basic flutter app to shutdown, sleep, restart or wake up a PC on the same network.
 
 ---
-![image info](./readme_resources/app1.png "App Screenshot")
+
 
 ## Requirements:
 
@@ -24,3 +24,5 @@ A basic flutter app to shutdown, sleep, restart or wake up a PC on the same netw
 - No authentication support.
 - In order to see the changes in settings, you need to restart the app.
 - Status will always show unknown.
+___
+![image info](./readme_resources/app1.png "App Screenshot")
