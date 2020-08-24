@@ -4,7 +4,6 @@ A basic flutter app to shutdown, sleep, restart or wake up a PC on the same netw
 
 ---
 ![image info](./readme_resources/app1.png "App Screenshot")
-![image info](./readme_resources/app2.png "App Screenshot")
 
 ## Requirements:
 
