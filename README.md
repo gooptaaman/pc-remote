@@ -4,10 +4,11 @@ A basic flutter app to shutdown, sleep, restart or wake up a PC on the same netw
 
 ---
 
-
 ## Requirements:
 
 - [Airytec Switch Off](http://www.airytec.com/en/switch-off/)
+
+- [PC-Remote Android App](http://www.mediafire.com/file/v2saeg6j7crqv47/file)
 - Both Phone and PC needs to be on the same network.
 
 ## Setting up.
@@ -24,5 +25,7 @@ A basic flutter app to shutdown, sleep, restart or wake up a PC on the same netw
 - No authentication support.
 - In order to see the changes in settings, you need to restart the app.
 - Status will always show unknown.
-___
+
+---
+
 ![image info](./readme_resources/app1.png "App Screenshot")
