@@ -23,7 +23,7 @@ A basic flutter app to shutdown, sleep, restart or wake up a PC on the same netw
 ### Known Issues:
 
 - No authentication support.
-- In order to see the changes in settings, you need to restart the app.
+- ~~In order to see the changes in settings, you need to restart the app.~~
 - Status will always show unknown.
 
 ---
