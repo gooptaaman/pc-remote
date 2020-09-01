@@ -1,23 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:remote_control/constants.dart';
+import 'package:remote_control/utils/constants.dart';
 
-class InfoCard extends StatefulWidget {
-  @override
-  _InfoCardState createState() => _InfoCardState();
-}
+class InfoCard extends StatelessWidget {
+  final String ip;
+  final String mac;
+  final String port;
 
-class _InfoCardState extends State<InfoCard> {
-  String ip = "";
-  String port = "";
-  String mac = "";
-  String status = "Unknown";
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
+  const InfoCard({this.ip, this.mac, this.port});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +37,7 @@ class _InfoCardState extends State<InfoCard> {
               Text(mac, style: kCardSubtitle),
               Text(port, style: kCardSubtitle),
               Text(
-                status,
+                'Unknown',
                 style: kCardSubtitle.copyWith(color: Colors.red[400]),
               ),
             ],
@@ -58,19 +47,28 @@ class _InfoCardState extends State<InfoCard> {
     );
   }
 
-  //Retrieve data from Shared Preferences.
-  void getData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      if (prefs.getString('ip') != null) {
-        ip = prefs.getString('ip');
-        mac = prefs.getString('mac');
-        port = prefs.getString('port');
-      } else {
-        ip = "null";
-        mac = "null";
-        port = "null";
-      }
-    });
-  }
+  // void loadData() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String spIp = prefs.getString('ipv4');
+  //   String spMac = prefs.getString('mac');
+  //   String spPort = prefs.getString('port');
+  //   final data = Data();
+  //   data.updateValues(newIp: spIp, newMac: spMac, newPort: spPort);
+  // }
 }
+
+// //Retrieve data from Shared Preferences.
+// void getData() async {
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+//   setState(() {
+//     if (prefs.getString('ip') != null) {
+//       ip = prefs.getString('ip');
+//       mac = prefs.getString('mac');
+//       port = prefs.getString('port');
+//     } else {
+//       ip = "null";
+//       mac = "null";
+//       port = "null";
+//     }
+//   });
+// }

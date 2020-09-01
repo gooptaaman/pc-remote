@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:remote_control/data/data.dart';
 import 'package:remote_control/widgets/input_field.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPage extends StatelessWidget {
   @override
@@ -73,15 +74,21 @@ class _SettingsFormState extends State<SettingsForm> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300)),
               onPressed: () {
                 if (_formKey.currentState.validate()) {
-                  saveData(_controllerIp.text, _controllerMac.text,
-                      _controllerPort.text);
+                  List<String> settings = [
+                    '${_controllerIp.text}',
+                    '${_controllerMac.text}',
+                    '${_controllerPort.text}',
+                  ];
+                  Provider.of<Data>(context, listen: false)
+                      .changeSettings(settings);
+
                   Scaffold.of(context).showSnackBar(
                     SnackBar(
                       content: Text("Settings Updated!"),
                     ),
                   );
                   Timer(Duration(seconds: 2), () {
-                    Navigator.pop(context);
+                    Navigator.pushReplacementNamed(context, '/');
                   });
                 }
               },
@@ -91,12 +98,4 @@ class _SettingsFormState extends State<SettingsForm> {
       ),
     );
   }
-}
-
-//Save data to Shared Preferences
-saveData(String ip, String mac, String port) async {
-  final prefs = await SharedPreferences.getInstance();
-  prefs.setString("ip", ip);
-  prefs.setString("mac", mac);
-  prefs.setString("port", port);
 }
