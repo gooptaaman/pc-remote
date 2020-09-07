@@ -88,7 +88,7 @@ class _SettingsFormState extends State<SettingsForm> {
                     ),
                   );
                   Timer(Duration(seconds: 2), () {
-                    Navigator.pushReplacementNamed(context, '/');
+                    Navigator.pop(context);
                   });
                 }
               },
